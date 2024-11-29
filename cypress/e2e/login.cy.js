@@ -1,3 +1,5 @@
+import userData from '../fixtures/userData.json'
+
 describe('Orange HRM Testes', () => {
 
   const selectorsList = {
@@ -8,16 +10,7 @@ describe('Orange HRM Testes', () => {
     wrongCredentialsAlert: "[role='alert']"
   }
 
-  const userData = {
-    userSuccess: {
-      username: 'Admin',
-      password: 'admin123'
-    },
-    userFail: {
-      username: 'teste',
-      password: 'teste'
-    }
-  }
+  
   it('Login - Sucess', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
