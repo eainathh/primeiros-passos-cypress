@@ -10,6 +10,14 @@ describe('Orange HRM Testes', () => {
     sectionTitleTopBar: ".oxd-topbar-header-breadcrumb-module",
     wrongCredentialsAlert: "[role='alert']",
     myInfoButton: '[href="/web/index.php/pim/viewMyDetails"]',
+    firstNameField: '[name="firstName"]',
+    lastNameField: '[name="lastName"]',
+    genericField: '.oxd-input--active',
+    dateField: "[placeholder='yyyy-dd-mm']",
+    closeButton: '.--close',
+
+
+
   }
 
   
@@ -21,6 +29,16 @@ describe('Orange HRM Testes', () => {
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index');
     cy.get(selectorsList.dashboardGrid)
     cy.get(selectorsList.myInfoButton).click()
+    cy.get(selectorsList.firstNameField).clear().type('FirstNameTest')
+    cy.get(selectorsList.lastNameField).clear().type('LastName')
+    // cy.get(selectorsList.genericField).eq(4).clear().type('Employee')
+    cy.get(selectorsList.genericField).eq(4).clear().type('OtherIdTest')
+    cy.get(selectorsList.genericField).eq(5).clear().type('DriversLicenseTeste')
+    cy.get(selectorsList.genericField).eq(6).clear().type('2025-03-10')
+    cy.get(selectorsList.closeButton).click()
+    
+    
+
   })
   it('Login - Fail', () => {
     cy.visit('/auth/login')
@@ -30,3 +48,4 @@ describe('Orange HRM Testes', () => {
     cy.get(selectorsList.wrongCredentialsAlert)
   })
 })
+
