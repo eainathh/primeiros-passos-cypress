@@ -15,6 +15,8 @@ describe('Orange HRM Testes', () => {
     genericField: '.oxd-input--active',
     dateField: "[placeholder='yyyy-dd-mm']",
     closeButton: '.--close',
+    select: '.oxd-select-text--active',
+    selectgeneric: '.oxd-select-text'
 
 
 
@@ -36,8 +38,14 @@ describe('Orange HRM Testes', () => {
     cy.get(selectorsList.genericField).eq(5).clear().type('DriversLicenseTeste')
     cy.get(selectorsList.genericField).eq(6).clear().type('2025-03-10')
     cy.get(selectorsList.closeButton).click()
-    
-    
+    cy.get(selectorsList.select).eq(0).click()
+    cy.get('.oxd-select-dropdown').should('be.visible')
+    cy.get('.oxd-select-dropdown > :nth-child(6)').click()
+    cy.get(selectorsList.select).eq(1).click()
+    cy.get('.oxd-select-dropdown').should('be.visible')
+    cy.get('.oxd-select-dropdown > :nth-child(4)').click()
+
+
 
   })
   it('Login - Fail', () => {
