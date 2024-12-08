@@ -9,4 +9,6 @@ Cypress ia JavaScript-based end-to-end testing framework that allows developers 
 npm install
 ```
 
+> NOTE
+> 
 > it is necessary to have node installed
