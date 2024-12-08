@@ -12,3 +12,12 @@ npm install
 > NOTE
 > 
 > it is necessary to have node installed
+
+## Runing
+```bash
+# You open the Cypress UI
+npc cypress open
+
+# Run the automation by command line
+npc cypress run
+```
