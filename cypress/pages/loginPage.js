@@ -4,10 +4,10 @@ class LoginPage {
             usernameField: "[name='username']",
             passwordField: "[name='password']",
             loginButton: "[type='submit']",
-            wrongCredentialsAlert: "[role='alert']",
+            wrongCredentialsAlert: ".oxd-alert",
         }
 
-        return selectors
+        return selectors;
     }
 
     accessLoginPage() {
@@ -17,8 +17,16 @@ class LoginPage {
     loginWithUser(username, password) {
         cy.get(this.selectorsList().usernameField).type(username)
         cy.get(this.selectorsList().passwordField).type(password)
+
+    }
+
+    buttonLogin(){
         cy.get(this.selectorsList().loginButton).click()
 
+    }
+
+    alertWrongCredentials(){
+        cy.get(this.selectorsList().wrongCredentialsAlert, { timeout: 10000 }).should('be.visible');
     }
 }
 
